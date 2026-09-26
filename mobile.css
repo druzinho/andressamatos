@@ -1,0 +1,22 @@
+.menu-toggle{display:none}
+@media(max-width:820px){
+  html{scroll-padding-top:88px}
+  .nav{flex-wrap:wrap;gap:10px;padding-top:12px;padding-bottom:12px}
+  .nav .brand{flex:1;min-width:0}
+  .nav #wa-nav{order:1;min-height:44px;padding:10px 12px;font-size:.78rem;box-shadow:none}
+  .nav #wa-nav svg{display:none}
+  .menu-toggle:not([hidden]){order:2;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);font:500 .78rem Inter,sans-serif;cursor:pointer}
+  .menu-icon{display:flex;flex-direction:column;gap:4px;width:16px}
+  .menu-icon i{display:block;width:16px;height:1.5px;background:currentColor;transition:transform .18s ease,opacity .18s ease}
+  .menu-toggle[aria-expanded="true"] .menu-icon i:first-child{transform:translateY(5.5px) rotate(45deg)}
+  .menu-toggle[aria-expanded="true"] .menu-icon i:nth-child(2){opacity:0}
+  .menu-toggle[aria-expanded="true"] .menu-icon i:last-child{transform:translateY(-5.5px) rotate(-45deg)}
+  header.site .nav nav.links{order:3;display:grid;grid-template-columns:1fr 1fr;flex-basis:100%;gap:6px;padding:12px 0 2px;border-top:1px solid var(--line)}
+  header.site.menu-ready:not(.menu-open) .nav nav.links{display:none}
+  header.site.menu-open nav.links{animation:menu-appear .18s ease-out}
+  header.site nav.links a{display:flex;align-items:center;gap:12px;min-height:48px;padding:12px 14px;border-radius:10px;background:var(--paper);opacity:1;font-size:.9rem}
+  header.site nav.links a[aria-current="page"]{background:var(--green);color:var(--cream)}
+  @keyframes menu-appear{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+}
+@media(max-width:360px){.nav{padding-left:14px;padding-right:14px;gap:7px}.nav .brand strong{font-size:.94rem}.nav .brand span{font-size:.53rem}.nav #wa-nav{padding:10px}.menu-toggle:not([hidden]){padding:10px 8px}}
+@media(prefers-reduced-motion:reduce){.menu-icon i{transition:none}header.site.menu-open nav.links{animation:none}}

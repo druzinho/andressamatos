@@ -52,3 +52,37 @@
     });
   }
 })();
+
+// A compact, keyboard-accessible navigation disclosure on small screens.
+(() => {
+  const header = document.querySelector('header.site');
+  const toggle = header?.querySelector('.menu-toggle');
+  const navigation = header?.querySelector('#site-navigation');
+  if (!toggle || !navigation) return;
+  const mobile = window.matchMedia('(max-width: 820px)');
+  function closeMenu(returnFocus = false) {
+    header.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    if (returnFocus) toggle.focus();
+  }
+  header.classList.add('menu-ready');
+  toggle.hidden = false;
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(open));
+    header.classList.toggle('menu-open', open);
+  });
+  navigation.addEventListener('click', event => {
+    if (event.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && header.classList.contains('menu-open')) closeMenu(true);
+  });
+  document.addEventListener('click', event => {
+    if (!header.contains(event.target)) closeMenu();
+  });
+  header.addEventListener('focusout', event => {
+    if (!header.contains(event.relatedTarget)) closeMenu();
+  });
+  mobile.addEventListener('change', () => closeMenu());
+})();

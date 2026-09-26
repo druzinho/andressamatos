@@ -8,8 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=claro-2">
-<link rel="stylesheet" href="portfolio.css?v=claro-2">
+<link rel="stylesheet" href="styles.css?v=mobile-1">
+<link rel="stylesheet" href="portfolio.css?v=mobile-1">
+<link rel="stylesheet" href="mobile.css?v=mobile-1">
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
@@ -19,7 +20,8 @@
       <strong>Andressa Matos</strong>
       <span>GARDE-MANGER</span>
     </a>
-    <nav class="links">
+    <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" hidden><span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>Menu</span></button>
+    <nav class="links" id="site-navigation" aria-label="Navegação principal">
       <a href="index.html#sobre">Sobre</a>
       <a href="index.html#cardapio">Cardápio</a>
       <a href="portfolio.html" aria-current="page">Portfólio</a>
@@ -146,6 +148,6 @@
   <div class="lightbox-content"></div>
   <div class="lightbox-navigation"><button type="button" data-direction="-1" aria-label="Trabalho anterior">← Anterior</button><span class="lightbox-counter"></span><button type="button" data-direction="1" aria-label="Próximo trabalho">Próximo →</button></div>
 </dialog>
-<script src="site.js" defer></script>
+<script src="site.js?v=mobile-1" defer></script>
 <script src="portfolio.js" defer></script>
 </body></html>
